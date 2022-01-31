@@ -15,6 +15,7 @@ public class ProjetoFinal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private static Container c = new Container();
+	private static User u = new User();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,13 +31,13 @@ public class ProjetoFinal extends HttpServlet {
 		// TODO Auto-generated method stub
 		String alterar = request.getParameter("alterar");
 		String id = request.getParameter("id");
-		String remover = request.getParameter("remover");
 		
 		if (id != null) {
-			if (remover.equals("0")) {
+			
+			if (alterar.equals("1")) {
 				c.deletar(Integer.parseInt(id));
-			} else if (alterar.equals("1")) {
-				User u = c.consultaUsuarios(Integer.parseInt(id));
+			} else if (alterar.equals("0")) {
+				u = c.consultaUsuarios(Integer.parseInt(id));
 				request.setAttribute("id", u.getId());
 				request.setAttribute("nome", u.getNome());
 				request.setAttribute("email", u.getEmail());
@@ -69,10 +70,10 @@ public class ProjetoFinal extends HttpServlet {
 			
 			
 			if (id != null && !id.isEmpty()) {
-				c.alterarUsuario(Integer.parseInt(id), email, nome, pais);
+				c.alterarUsuario(Integer.parseInt(id), nome, email, pais);
 				
 			} else {
-				User u = new User(email, nome, pais);
+				u = new User(nome, email, pais);
 				c.inserir(u);
 				
 			}

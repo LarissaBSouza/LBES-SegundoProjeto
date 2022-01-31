@@ -44,8 +44,7 @@
       						<td>${user.nome}</td>
       						<td>${user.email}</td>
       						<td>${user.pais}</td>
-      						<td><a href="?id=${i.index}&alterar=1">Alterar</a>
-      							<a href="?id=${i.index}&remover=0">Remover</a></td>
+      						<td><a href="?id=${i.index}&alterar=0">Alterar</a> <a href="?id=${i.index}&alterar=1">Remover</a></td>
     				</tr>
   				</c:forEach>
 			</table>
