@@ -6,7 +6,7 @@ import java.util.List;
 public class Container {
 		
 		private List<User> user = new ArrayList<User>();
-		private static int id = 0;
+		private static int id = 1;
 		
 		public void inserir(User usuario) {
 			usuario.setId(id);
